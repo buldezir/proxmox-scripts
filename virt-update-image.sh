@@ -3,7 +3,7 @@
 # Author: Alexander Arutyunov (buldezir@gmail.com) github.com/buldezir
 
 if [ ! $1 ]; then
-    echo "usage: ./virt-update-image <image>"
+    echo "usage: ./virt-update-image.sh <image>"
     exit 1
 fi
 
