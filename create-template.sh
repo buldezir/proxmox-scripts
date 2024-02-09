@@ -29,7 +29,7 @@ select storage in "${arr[@]}"; do
 
     echo "Creating VM $vmid with name \"$vmname\" and storage \"$storage\""
 
-    qm create $vmid --name $vmname --memory 2048 --net0 virtio,bridge=vmbr0 --scsihw virtio-scsi-single
+    qm create $vmid --name $vmname --memory 2048 --net0 virtio,bridge=vmbr0 --scsihw virtio-scsi-single --cpu cputype=host
     qm importdisk $vmid $vmimage $storage
     qm set $vmid --scsi0 "$storage:vm-$vmid-disk-0,discard=on,iothread=1,ssd=1"
     qm set $vmid --ide2 "$storage:cloudinit"
